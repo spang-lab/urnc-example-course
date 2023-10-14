@@ -1,0 +1,12 @@
+.DS_Store
+.ipynb_checkpoints/
+.jupyter/
+.virtual_documents
+.vscode/
+*.bkp
+images/dev/
+lectures/_build/
+public/
+student/
+tmp/
+website/

@@ -1,0 +1,19 @@
+name: Deploy Student Version
+on:
+  push:
+    tags:
+      - '*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install urnc
+      - name: Build
+        run: urnc ci

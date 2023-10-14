@@ -1,0 +1,24 @@
+name: Deploy Website
+on:
+  push:
+    tags:
+      - '*'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install thespanglab/urnc@v1.3.3
+      - name: Build and deploy website
+        run: python scripts/make_website_files.py
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: website

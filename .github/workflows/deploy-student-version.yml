@@ -1,8 +1,5 @@
 name: Deploy Student Version
-on:
-  push:
-    tags:
-      - '*'
+on: {push: {branches: [main]}}
 jobs:
   build:
     runs-on: ubuntu-latest

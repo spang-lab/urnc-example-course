@@ -5,7 +5,7 @@ import re
 import shutil
 import subprocess
 import sys
-from os.path import join, normpath
+from os.path import join, normpath, exists
 
 root_dir = normpath(join(__file__, "..", ".."))
 script_dir = join(root_dir, "scripts")
@@ -33,7 +33,8 @@ def copy_html_files_to_folder_website():
     print_header("COPYING `./LECTURES/_BUILD/HTML/*` TO `./WEBSITE/`")
     os.makedirs(website_dir, exist_ok=True)
     shutil.copytree("lectures/_build/html", website_dir, dirs_exist_ok=True)
-    shutil.copytree("images", join(website_dir, "images"), dirs_exist_ok=True)
+    if exists("images"):
+        shutil.copytree("images", join(website_dir, "images"), dirs_exist_ok=True)
 
 def patch_img_paths_in_website():
     print_header("CONVERTING LOCAL PATHS IN WEBSITE TO UNC PATHS")

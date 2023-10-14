@@ -1,7 +1,8 @@
 name: Deploy Student Version
 on: {push: {branches: [main]}}
 jobs:
-  build:
+  deploy-student-version:
+    name: Deploy Student Version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

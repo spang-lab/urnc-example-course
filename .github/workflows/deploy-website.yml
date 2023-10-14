@@ -1,7 +1,8 @@
 name: Deploy Website
 on: {push: {branches: [main]}}
 jobs:
-  deploy:
+  deploy-website:
+    name: Deploy Website
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -11,7 +12,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install dependencies
-        run: pip install thespanglab/urnc@v1.3.3
+        run: pip install urnc
       - name: Build and deploy website
         run: python scripts/make_website_files.py
       - name: Deploy to GitHub Pages

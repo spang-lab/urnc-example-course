@@ -35,6 +35,8 @@ def copy_html_files_to_folder_website():
     shutil.copytree("lectures/_build/html", website_dir, dirs_exist_ok=True)
     if exists("images"):
         shutil.copytree("images", join(website_dir, "images"), dirs_exist_ok=True)
+    # Create .nojekyll file to tell github pages this is a static website
+    open(join(website_dir, ".nojekyll"), "w").close()
 
 def patch_img_paths_in_website():
     print_header("CONVERTING LOCAL PATHS IN WEBSITE TO UNC PATHS")

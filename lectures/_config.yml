@@ -41,10 +41,8 @@ html:
 latex:
   latex_engine: pdflatex # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
   use_jupyterbook_latex: true # use sphinx-jupyterbook-latex for pdf builds as default
-  latex_documents:
-    targetname: "book.tex" # https://jupyterbook.org/en/stable/advanced/pdf.html#updating-the-name-of-the-book-style-pdf-file
-bibtex_bibfiles:
-  - "references.bib"
+  latex_documents: {targetname: "book.tex"} # https://jupyterbook.org/en/stable/advanced/pdf.html#updating-the-name-of-the-book-style-pdf-file
+bibtex_bibfiles: [""]
 
 # Launch button settings
 launch_buttons:

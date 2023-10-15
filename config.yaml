@@ -26,13 +26,17 @@ git:
   # - {pattern: lectures/sheet4.ipynb, until: 2999-01-01}
   #
   # Example 2: ignore the complete folder, except for some files. The exception will only be respected after a given date.
-  # - {pattern: lectures}
-  # - {pattern: !lectures/sheet1.ipynb, after: 2022-01-01}
-  # - {pattern: !lectures/sheet2.ipynb, after: 2022-01-08}
-  # - {pattern: !lectures/sheet3.ipynb, after: 2022-01-15}
-  # - {pattern: !lectures/sheet4.ipynb, after: 2999-01-01}
+  # - {pattern: "assignments/*"}
+  # - {pattern: "!assignments/sheet1.ipynb", after: "2022-01-01"}
+  # - {pattern: "!assignments/sheet2.ipynb", after: "2022-01-08"}
+  # - {pattern: "!assignments/sheet3.ipynb", after: "2022-01-15"}
+  # - {pattern: "!assignments/sheet4.ipynb", after: "2999-01-01"}
   exclude:
-  - assignments/example.ipynb
+  - "assignments/*"
+  - {pattern: "!assignments/01*.ipynb", after: "2023-10-02"}
+  - {pattern: "!assignments/02*.ipynb", after: "2023-10-09"}
+  - {pattern: "!assignments/03*.ipynb", after: "2023-10-16"}
+  - {pattern: "!assignments/04*.ipynb", after: "9999-10-23"}
   - container/
   - lectures/_config.yml
   - lectures/_toc.yml

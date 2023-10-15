@@ -1,26 +1,36 @@
 name: URNC Example Course
 version: 1.0.0
-description: Example course demonstrating the use of urnc (https://github.com/spang-lab/urnc)
+description: Example course demonstrating the use of URNC (https://github.com/spang-lab/urnc)
 authors:
 - name: Tobias Schmidt
   email: tobias.schmidt331@gmail.com
 - name: "Michael Huttner"
   email: michael@mhuttner.com
 git:
-  # The `student` property specifies the URL to the public repository that should be readable to everyone, in particular to students taking the course. The URL must include an access token, so the URNC can push content to it. In a real course the main repository would be private, with only lecturers having access. In such a case the access token can be specified as plain text, because only authorized people can see it. In this example course we cannot do that, because this repository is public as well, therefore we set the access token as environment variable during the corresponding Github Action.
-  student: "https://github.com/spang-lab/urnc-example-course-public.git"
-  # The exclude property contains a set of file patterns that urnc will ignore when pushing to the public repository. The patterns must be written in .gitignore style (https://git-scm.com/docs/gitignore) and are actually appended to the public repository's .gitignore file before urnc pushes to it. Example:
-  # exclude:
+  # The `student` property specifies the URL to the public repository that should be readable to everyone, in particular to students taking the course (https://github.com/spang-lab/urnc-example-course-public). Since we use URNC to push content to this repository, the URL should include an access token with push access. In a real course, the main repository should be private, with access restricted to lecturers only. In such a case the access token can be specified in plain text because only authorized people can see it. However, in this example course we cannot do this because this repository is public, so we will provide the access token as environment variable URNC_ACCESS_TOKEN_STUDENT_REPO during the Github action. URNC will automatically replace any word enclosed in `{}` with the corresponding environment value, if it exists.
+  student: "https://urncbot:{URNC_ACCESS_TOKEN_STUDENT_REPO}@github.com/spang-lab/urnc-example-course-public.git"
+  # The `exclude` property contains a set of file patterns that URNC will ignore when pushing to the public repository. The patterns must be written in .gitignore style (https://git-scm.com/docs/gitignore) and are actually appended to the public repository's .gitignore file before URNC pushes to it.
+  #
+  # Example:
   # - container/
   # - .gitlab-ci.yml
   # - config.yaml
   # - README.md
-  # In addition to a simple list of patterns, you can also specify a list of dictionaries, with the following keys accepted: `pattern`, `until`. The `pattern` key is mandatory and specifies the pattern to append to the .gitignore file. The `until` key is optional and can be used to specify a datetime in the format `YYYY-MM-DD hh:mm:ss`. If the specified datetime is in the past, urnc will ignore the corresponding pattern. This syntax can be used in combination with scheduled github actions (https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) to automatically upload new exercises every day, week or month. Example:
-  # exclude:
+  #
+  # In addition to a simple list of patterns, you can also specify a list of dictionaries, with the following keys accepted: `pattern`, `after`, `until`. The `pattern` key is mandatory and specifies the pattern to append to the .gitignore file. The `after` and `until` keys are optional and can be used to specify datetimes in the format `YYYY-MM-DD hh:mm:ss`. If the current datetime at execution does not lie within the specified interval, urnc will ignore the corresponding pattern. This syntax in combination with scheduled github actions (https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) can be used to automatically upload new exercises every day, week or month.
+  #
+  # Example 1: ignore certain files until the specified dates
   # - {pattern: lectures/sheet1.ipynb, until: 2022-01-01}
   # - {pattern: lectures/sheet2.ipynb, until: 2022-01-08}
   # - {pattern: lectures/sheet3.ipynb, until: 2022-01-15}
   # - {pattern: lectures/sheet4.ipynb, until: 2999-01-01}
+  #
+  # Example 2: ignore the complete folder, except for some files. The exception will only be respected after a given date.
+  # - {pattern: lectures}
+  # - {pattern: !lectures/sheet1.ipynb, after: 2022-01-01}
+  # - {pattern: !lectures/sheet2.ipynb, after: 2022-01-08}
+  # - {pattern: !lectures/sheet3.ipynb, after: 2022-01-15}
+  # - {pattern: !lectures/sheet4.ipynb, after: 2999-01-01}
   exclude:
   - container/
   - .gitlab-ci.yml

@@ -4,6 +4,8 @@ jobs:
   deploy-student-version:
     name: Deploy Student Version
     runs-on: ubuntu-latest
+    env:
+      URNC_ACCESS_TOKEN_STUDENT_REPO: ${{ secrets.URNC_ACCESS_TOKEN_STUDENT_REPO }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

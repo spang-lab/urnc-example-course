@@ -32,7 +32,10 @@ git:
   # - {pattern: !lectures/sheet3.ipynb, after: 2022-01-15}
   # - {pattern: !lectures/sheet4.ipynb, after: 2999-01-01}
   exclude:
+  - assignments/example.ipynb
   - container/
-  - .gitlab-ci.yml
+  - lectures/_config.yml
+  - lectures/_toc.yml
+  - scripts
   - config.yaml
   - README.md

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -139,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="#">
+  
   
   
   
@@ -270,6 +272,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -280,6 +283,7 @@ document.write(`
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -287,7 +291,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -303,6 +309,24 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python">Installing Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pip">Installing pip</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-and-urnc">Installing jupyter and urnc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-urnc">Installing URNC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-git">Installing Git</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-example-repository">Cloning the Example Repository</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-and-solving-assignments-in-jupyter-notebook">Opening and Solving Assignments in Jupyter Notebook</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -314,13 +338,101 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
-<p>This document will explain how to:</p>
+<p>In recent years, <a class="reference external" href="https://jupyter.org/">Jupyter</a> has become a valuable tool in online education, as evidenced by numerous high-quality courses such as Berkeley’s <a class="reference external" href="https://www.data8.org/">Data 8 course</a>. The setup described in <a class="reference external" href="https://z2jh.jupyter.org/en/stable/">Zero to JupyterHub with Kubernetes</a> facilitates the management of courses with hundreds of students. However, a recurring challenge has been maintaining consistency between slides, scripts, exercises, and solutions. URNC addresses this issue by allowing all of these files to be generated from a single source of truth, greatly simplifying the process of keeping course materials in sync.</p>
+<p>This document explains how to:</p>
 <ol class="arabic simple">
-<li><p>Install <a class="reference external" href="https://git-scm.com/">git</a>, <a class="reference external" href="https://jupyter.org/">jupyter</a> and <a class="reference external" href="https://github.com/spang-lab/urnc">urnc</a></p></li>
+<li><p>Install <a class="reference external" href="https://www.python.org/">python</a>, <a class="reference external" href="https://pypi.org/project/pip/">pip</a>, <a class="reference external" href="https://jupyter.org/">jupyter</a>, <a class="reference external" href="https://github.com/spang-lab/urnc">urnc</a>, and <a class="reference external" href="https://git-scm.com/">git</a>.</p></li>
 <li><p>Clone the example repo</p></li>
-<li><p>Open this notebook on your local PC and solve the assignments at the end</p></li>
+<li><p>Open this notebook on your local pc and solve the included tasks directly within the notebook (right now we assume that you read this text on the <a class="reference external" href="https://spang-lab.github.io/urnc-example-course/">urnc-example-course website</a> where you cannot execute code).</p></li>
 </ol>
-<p>It is assumed that you read this text at the website of the <em>urnc-example-course</em> (<a class="reference external" href="https://spang-lab.github.io/urnc-example-course/">https://spang-lab.github.io/urnc-example-course/</a>).</p>
+<section id="installing-python">
+<h2>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this heading">#</a></h2>
+<p>Python is a popular programming language that is widely used in various fields, including data science, web development, and automation.</p>
+<ol class="arabic simple">
+<li><p>Visit the official Python downloads page at <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p></li>
+<li><p>Download the latest version for your operating system.</p></li>
+<li><p>Run the installer and follow the instructions. Make sure to check the box that says “Add Python to PATH” before you click “Install Now”.</p></li>
+</ol>
+</section>
+<section id="installing-pip">
+<h2>Installing pip<a class="headerlink" href="#installing-pip" title="Permalink to this heading">#</a></h2>
+<p>Pip is a package manager for Python that allows you to install and manage additional packages that are not part of the Python standard library. Pip is usually installed automatically when you install Python from the official source as described in section <a class="reference internal" href="#installing-python"><span class="std std-doc">Installing Python</span></a>. However, if for some reason it is not installed, you can install it manually as follows:</p>
+<ol class="arabic simple">
+<li><p>Check if pip is already installed by running the following command in a terminal: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">--version</span></code>. If pip is installed, you should see something like this: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">x.y.z</span> <span class="pre">from</span> <span class="pre">...</span> <span class="pre">(python</span> <span class="pre">X.Y)</span></code>. In this case, you can skip the rest of this section.</p></li>
+<li><p>Download the <code class="docutils literal notranslate"><span class="pre">get-pip.py</span></code> file from <a class="reference external" href="https://bootstrap.pypa.io/get-pip.py">https://bootstrap.pypa.io/get-pip.py</a>.</p></li>
+<li><p>Open a terminal and navigate to the directory where you downloaded <code class="docutils literal notranslate"><span class="pre">get-pip.py</span></code>.</p></li>
+<li><p>Run the following command: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get-pip.py</span></code>.</p></li>
+</ol>
+<p>Now you should have both Python and pip installed on your system. You can verify the installation by opening a terminal and running the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+pip<span class="w"> </span>--version
+</pre></div>
+</div>
+<section id="installing-jupyter-and-urnc">
+<h3>Installing jupyter and urnc<a class="headerlink" href="#installing-jupyter-and-urnc" title="Permalink to this heading">#</a></h3>
+<p><strong>Jupyter</strong> is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text. It’s widely used for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.</p>
+<p><strong>URNC</strong> (Uni Regensburg Notebook Converter) is a tool designed to maintain consistency among various educational materials like slides, scripts, exercises, and solutions from a single source of truth.</p>
+<p><strong>Installation Steps:</strong></p>
+<ol class="arabic">
+<li><p>Run commands <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">--version</span></code> to ensure python version 3.10 or greater and pip version 23.3 or greater are installed on your system. If not, please go back to chapter <a class="reference external" href="https://spang-lab.github.io/urnc-example-course/installing_python.html">Installing Python</a> and follow the instructions there.</p></li>
+<li><p><strong>Install Jupyter using PIP</strong>: Open your command prompt or terminal and run the following commands to install Jupyter and URNC via pip <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">jupyterlab</span> <span class="pre">notebook</span> <span class="pre">urnc</span></code>.</p></li>
+<li><p><strong>Verify Installation</strong>:</p>
+<ul>
+<li><p>Once the installation is complete, run the following command to open Jupyter Notebook:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+</li>
+<li><p>This should open Jupyter in your default web browser.</p></li>
+</ul>
+</li>
+<li><p><strong>Create a New Notebook</strong>:</p>
+<ul class="simple">
+<li><p>In the Jupyter Notebook interface, click on ‘New’ and select ‘Python 3’ to start a new notebook.</p></li>
+</ul>
+</li>
+<li><p><strong>Getting Familiar</strong>:</p>
+<ul class="simple">
+<li><p>Familiarize yourself with the Jupyter Notebook interface, including how to create and run cells.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="installing-urnc">
+<h3>Installing URNC<a class="headerlink" href="#installing-urnc" title="Permalink to this heading">#</a></h3>
+<p><strong>Installation Steps:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Prerequisites</strong>: ensure that you have <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span></code> installed on your system, as URNC requires these for functioning.</p></li>
+<li><p><strong>Clone the URNC Repository</strong>: open your terminal or command prompt and use the following command to install the latest version of <code class="docutils literal notranslate"><span class="pre">urnc</span></code>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">urnc</span></code></p></li>
+<li><p><strong>Verify Installation</strong>: open your command prompt or terminal and run <code class="docutils literal notranslate"><span class="pre">urnc</span> <span class="pre">--version</span></code> to ensure urnc is successfully installed.</p></li>
+</ol>
+</section>
+</section>
+<section id="installing-git">
+<h2>Installing Git<a class="headerlink" href="#installing-git" title="Permalink to this heading">#</a></h2>
+<p>Git is a distributed version control system used for tracking changes in source code during software development. URNC uses Git to manage the course materials. To install Git, follow the steps below:</p>
+<ol class="arabic simple">
+<li><p>Visit <a class="reference external" href="https://git-scm.com/">Git’s official website</a> and download the appropriate version for your operating system.</p></li>
+<li><p>Run the downloaded installer and follow the installation instructions. During installation, you can select and configure the necessary components based on your preferences.</p></li>
+<li><p>Open your command prompt or terminal and run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">--version</span></code> to ensure Git is successfully installed.</p></li>
+</ol>
+<section id="cloning-the-example-repository">
+<h3>Cloning the Example Repository<a class="headerlink" href="#cloning-the-example-repository" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to the directory where you want to clone the repository.</p></li>
+<li><p>Run the following command to clone the repository: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/spang-lab/urnc-example-course.git</span></code></p></li>
+<li><p>Use command <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">urnc-example-course</span></code> to change your working directory to the cloned repository</p></li>
+</ol>
+</section>
+</section>
+<section id="opening-and-solving-assignments-in-jupyter-notebook">
+<h2>Opening and Solving Assignments in Jupyter Notebook<a class="headerlink" href="#opening-and-solving-assignments-in-jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Inside the cloned repository start Jupyter Lab by running <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code></p></li>
+<li><p>Inside Jupyter Lab, use the file tree to the left to navigate to the <code class="docutils literal notranslate"><span class="pre">lecture/01-getting-started.ipynb</span></code> file and doubleclick it to open it.</p></li>
+<li><p>The notebook contains assignments and tasks. Read the instructions and solve the tasks directly in the notebook. You can write and execute code in the notebook cells to find solutions.</p></li>
+</ol>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -353,7 +465,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="right-next"
        href="02_urnc_usage.html"
@@ -371,6 +483,30 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python">Installing Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pip">Installing pip</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-and-urnc">Installing jupyter and urnc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-urnc">Installing URNC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-git">Installing Git</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-example-repository">Cloning the Example Repository</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-and-solving-assignments-in-jupyter-notebook">Opening and Solving Assignments in Jupyter Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -387,6 +523,7 @@ By Tobias Schmidt, Michael Huttner
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -413,8 +550,8 @@ By Tobias Schmidt, Michael Huttner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
